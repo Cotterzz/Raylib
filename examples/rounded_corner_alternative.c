@@ -28,6 +28,7 @@ struct Point {
 //------------------------------------------------------------------------------------
 int main(void)
 {
+    SetConfigFlags(FLAG_MSAA_4X_HINT);
     // Initialization
     //--------------------------------------------------------------------------------------
     const int screenWidth = 800;
@@ -35,10 +36,6 @@ int main(void)
 
     InitWindow(screenWidth, screenHeight, "raylib [models] example - mesh generation");
 
-    // We generate a checked image for texturing
-    Image checked = GenImageChecked(2, 2, 1, 1, RED, GREEN);
-    Texture2D texture = LoadTextureFromImage(checked);
-    UnloadImage(checked);
 
     Model models[NUM_MODELS] = { 0 };
     
@@ -61,7 +58,7 @@ int main(void)
     Camera camera = { { 5.0f, 5.0f, 5.0f }, { 0.0f, 0.0f, 0.0f }, { 0.0f, 1.0f, 0.0f }, 45.0f, 0 };
 
     // Model drawing position
-    Vector3 position = { -0.5f, 0.0f, -0.5f };
+    Vector3 position = { 0.0f, 0.0f, 0.0f };
 
     int currentModel = 0;
 
@@ -129,7 +126,7 @@ int main(void)
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadTexture(texture); // Unload texture
+    //UnloadTexture(texture); // Unload texture
 
     // Unload models data (GPU VRAM)
     for (int i = 0; i < NUM_MODELS; i++) UnloadModel(models[i]);
@@ -141,6 +138,8 @@ int main(void)
 }
 static Mesh GenMeshCorner(int segments)
 {
+    bool highlight = false; // Red/green highlighting of different segment layers.
+    
     // make sure segments is a positive power of 2.
     if (segments<1){ segments=1;}
     unsigned int msb = 1;
@@ -149,18 +148,14 @@ static Mesh GenMeshCorner(int segments)
     
     // get the points from the curve
     int num_points = segments+1;
-    double radius = 1.0;
+    double radius = 0.1;
     struct Point points[num_points];
-
-    
     double angle_increment = 3.14159265358979323846264338327950288 / 2 / (num_points - 1); // Angle between points
-
     for (int i = 0; i < num_points; i++) {
         double angle = i * angle_increment;
         points[i].x = radius * cos(angle); 
         points[i].y = radius * sin(angle); 
     }
-    
     
     // set up mesh
     Mesh mesh = { 0 };
@@ -176,12 +171,13 @@ static Mesh GenMeshCorner(int segments)
     mesh.vertices[v+2] = 0;
     mesh.vertices[v+3] = 0;
     mesh.vertices[v+4] = 0;
-    mesh.vertices[v+5] = 1;
-    mesh.vertices[v+6] = 1;
+    mesh.vertices[v+5] = radius;
+    mesh.vertices[v+6] = radius;
     mesh.vertices[v+7] = 0;
     mesh.vertices[v+8] = 0;
     int c = 0;
-    Color vc = GREEN;
+    Color vc = BLACK;
+    if(highlight){vc=GREEN;}
     mesh.colors[c+0] = vc.r;
     mesh.colors[c+1] = vc.g;
     mesh.colors[c+2] = vc.b;
@@ -194,7 +190,7 @@ static Mesh GenMeshCorner(int segments)
     mesh.colors[c+9] = vc.g;
     mesh.colors[c+10] = vc.b;
     mesh.colors[c+11] = vc.a;
-    vc = RED;
+    if(highlight){vc=RED;}
     // if only one segment, end here
     if (segments==1){
        UploadMesh(&mesh, false);
@@ -237,7 +233,7 @@ static Mesh GenMeshCorner(int segments)
         
         if(pointB == segments) {
             segstart = 0;
-            if(vc.r==0){vc = RED;} else {vc = GREEN;}
+            if(highlight){if(vc.r==0){vc = RED;} else {vc = GREEN;}}
             if(segstep>1){
                 segstep /=2;
                 
