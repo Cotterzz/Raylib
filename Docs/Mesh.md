@@ -18,7 +18,7 @@ F(Texture) --> B(Material)
 G(.vs) --> E(Shader)
 H(.fs) --> E(Shader)
 ```
-It contains a set of Arrays, which act as Vertex Buffer Objects (VBOs) when uploaded to the GPU.
+It contains a set of Arrays, some of which act as Vertex Buffer Objects (VBOs) when uploaded to the GPU.
 
 This is the definition in Raylib.h
 ```c
