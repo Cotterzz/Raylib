@@ -1,8 +1,8 @@
 /*******************************************************************************************
 *
 *   alternative corner geometry example by John Cotterell aka Cotterzz
-*   adapted from procedural mesh generation example
-*
+*   adapted from 'procedural mesh generation' example by Ramon Santamaria
+*   
 *   Example originally created with raylib 1.8, last time updated with raylib 4.0
 *
 *   Example licensed under an unmodified zlib/libpng license, which is an OSI-certified,
