@@ -1,0 +1,72 @@
+{
+  "Model": {
+    "transform": {     // Transform struct
+      "translation": [x, y, z], // Vector3 translation
+      "rotation": [x, y, z, w], // Quaternion rotation
+      "scale": [x, y, z] // Vector3 scale
+    },
+    "meshCount": int, // Number of meshes in the model
+    "materialCount": int, // Number of materials in the model 
+    "meshes": [     // Array of Mesh structures
+      {
+        "vertexCount": int, 
+        "triangleCount": int,
+        // Vertex attributes data
+        "vertices": [x, y, z], // Array of float containing vertex positions
+        "texcoords": [u, v], // Array of float containing texture coordinates
+        "texcoords2": [u, v], // Array of float containing second texture coordinates
+        "normals": [x, y, z], // Array of float containing normals
+        "tangents": [x, y, z, w], // Array of float containing tangents
+        "colors": [r, g, b, a], // Array of unsigned char containing vertex colors
+        // Animation data (if available)
+        "animVertices": [x, y, z], // Array of float containing animated vertex positions
+        "animNormals": [x, y, z], // Array of float containing animated normals
+        "boneIds": [int], // Array of unsigned char containing vertex bone ids
+        "boneWeights": [float], // Array of float containing vertex bone weights
+        // OpenGL identifiers
+        "vaoId": int, // Vertex Array Object id
+        "vboId": [int] // Array of Vertex Buffer Objects id
+      }
+    ],
+    "materials": [ // Array of Material structures
+      {
+        "shader": {
+          "id": 1, 
+          "locs": [0, 1, 2],  
+          "vertexShader": "path/to/external/vertex.shader",  // Link to an external vertex shader
+          "fragmentShader": "\\\n#version 330 core\\\n\\\nout vec4 fragColor;\\\nin vec2 TexCoords;\\\nuniform sampler2D texture1;\\\nvoid main() {\\\n    fragColor = texture(texture1, TexCoords);\\\n} \\\n"  // Literal inline fragment shader, escaped with double backslashes
+        },
+        "maps": [  // Array of MaterialMap
+          {
+            "texture": { // Texture2D data (if available)
+              "id": 1,
+              "width": 512,
+              "height": 512,
+              "mipmaps": 8,
+              "format": 1,
+              "wrap": 1,
+              "filter": 2,
+              "imagePath": "path/to/texture.png"  // Link to the image file for the texture
+            },  
+            "color": [r, g, b, a], // Material map color as array of float
+            "value": float // Material map value
+          }
+        ],
+        "params": [float, float, float, float] // Array of float containing generic material parameters
+      }
+    ],  
+    "meshMaterial": [int], // Array of int, linking meshes to their respective materials by index.
+    "boneCount": int, // Number of bones in the skeleton
+    "bones": [  // Array of BoneInfo structures
+      {
+        "name": "string", // Bone name
+        "parent": int // Index of the parent bone
+      }
+    ],
+    "bindPose": [  // Array of Transform structures
+      { 
+        // Same as Transform struct definition
+      }
+    ]   
+  }
+}
