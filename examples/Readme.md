@@ -10,7 +10,7 @@ This might enable LOD to be increased as you get closer to it, or for the extra 
 
 ## Fireballs
 
-This is a particle effect using a quad for each particle, it allows more control over the shader, allowing different values to be passed to each particle's shader using the vertex buffer.
+This is a particle effect using a quad for each particle, it allows more control over the shader, so different values can be passed to each particle's shader using the vertex buffer.
 
 ## Model JSON
 
