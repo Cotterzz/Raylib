@@ -34,4 +34,4 @@ TODO - Convert shader from 330 to 100, also convert C to JS
 
 I am going to modify the sand to it behaves like a liquid.
 Also with this version I am going to introduce another texture to store non-colour data.
-I may even try unpacking colour floats into four bytes so each pixel has 16 bytes available.
+I may even try unpacking colour floats into four bytes so each pixel has 16 bytes available: https://aras-p.info/blog/2009/07/30/encoding-floats-to-rgba-the-final/
