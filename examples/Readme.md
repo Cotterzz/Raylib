@@ -7,6 +7,7 @@ It was built as a possible workaround for this issue: https://github.com/raysan5
 It might be preferable because it keeps the edges from converging on the centre of the curve.
 It also has the advantage of being incremental - unlike a fan that needs to be completely rebuilt as you add segemts, this approach preserves the geometry and adds to it for more accuracy.
 This might enable LOD to be increased as you get closer to it, or for the extra vertex calculation to be added on later frames.
+It might also be faster to render, because of the lower number of edge pixels: https://www.humus.name/index.php?page=News&ID=228
 
 ## Fireballs
 
