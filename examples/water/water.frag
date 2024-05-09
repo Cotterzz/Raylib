@@ -16,8 +16,8 @@ int border = 2;
 
 void main()
 {
-    vec2 pos = vec2(gl_FragCoord.x, gl_FragCoord.y);
-    //vec2 pos = vec2(fragTexCoord.x*screensize, fragTexCoord.y*screensize);
+    //vec2 pos = vec2(gl_FragCoord.x, gl_FragCoord.y);
+    vec2 pos = vec2(fragTexCoord.x*screensize, fragTexCoord.y*screensize);
     //vec2 pos = vec2(vertPos.x, screensize-vertPos.y);
     bool isB = pos.y<border; // are we on the bottom
     bool isT = pos.y>(screensize-border); // are we on the top
