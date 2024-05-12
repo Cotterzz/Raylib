@@ -3,7 +3,7 @@
 // Input vertex attributes (from vertex shader)
 in vec2 fragTexCoord;
 in vec4 fragColor;
-in vec3 vertPos;
+//in vec3 vertPos;
 // Output fragment color
 out vec4 finalColor;
 uniform sampler2D texture1;
@@ -16,9 +16,9 @@ int border = 2;
 
 void main()
 {
-    //vec2 pos = vec2(gl_FragCoord.x, gl_FragCoord.y);
+    vec2 pos = vec2(gl_FragCoord.x, gl_FragCoord.y);
     //vec2 pos = vec2(fragTexCoord.x*screensize, fragTexCoord.y*screensize);
-    vec2 pos = vec2(vertPos.x, screensize-vertPos.y);
+    //vec2 pos = vec2(vertPos.x, screensize-vertPos.y);
     bool isB = pos.y<border; // are we on the bottom
     bool isT = pos.y>(screensize-border); // are we on the top
     bool isL = pos.x<border; // are we on the left
