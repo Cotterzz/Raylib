@@ -7,8 +7,8 @@ int main(void)
     InitWindow(screenWidth, screenHeight, "Falling Sand");
     Shader shader = LoadShader(0, "sand.frag");
     Vector3 position = { -0.5f, -0.5f, 0.0f };
-    SetTargetFPS(6000);
-    int IterationsPerFrame = 1;
+    SetTargetFPS(60);
+    int IterationsPerFrame = 10;
     int CurrentIteration = 0;
     int texLoc = GetShaderLocation(shader, "texture1");
     RenderTexture2D target = LoadRenderTexture(screenWidth, screenHeight);
