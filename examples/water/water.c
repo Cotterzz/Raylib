@@ -5,7 +5,7 @@ int main(void)
     const int panelsize = 128;
     const int pixelsize = 4;
     const int paneldisplaysize = panelsize*pixelsize;
-    const int bordersize = 0;
+    const int bordersize = 20;
     
     const int screenHeight = paneldisplaysize + (bordersize*2);
     const int screenWidth = screenHeight; //(paneldisplaysize*2) + (bordersize*4);
@@ -33,7 +33,7 @@ int main(void)
                 BeginShaderMode(shader);
                 DrawTextureRec(target.texture, (Rectangle){ 0, 0, (float)target.texture.width, (float)-target.texture.height}, (Vector2){ 0, 0 }, WHITE); // y-flip texture 
                 EndShaderMode();
-                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) ){DrawCircle((int)((mousePos.x/pixelsize)-(bordersize/pixelsize)), (int)((mousePos.y/pixelsize)-(bordersize/pixelsize)), 1, YELLOW);}
+                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) ){DrawCircle((int)((mousePos.x/pixelsize)-(bordersize/pixelsize)), (int)((mousePos.y/pixelsize)-(bordersize/pixelsize)), 1, BLUE);}
                 if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT) ){DrawCircle((int)mousePos.x-bordersize, (int)mousePos.y-bordersize, 1, BLACK);}
                 SetShaderValueTexture(shader, texLoc, target.texture);
                 float fTime = GetTime();

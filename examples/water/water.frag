@@ -66,6 +66,11 @@ void main()
     bool falldl = pixdlc.g>0.0;
 
     vec4 texelColor1 = pixc;
+
+    texelColor1 = mix(texelColor1, mix(texelColor1, pixrc, 0.02), float(fallr)*float(fall));
+    texelColor1 = mix(texelColor1, mix(texelColor1, pixdrc, 0.04), float(falldr)*float(fall));
+    texelColor1 = mix(texelColor1, mix(texelColor1, pixdlc, 0.04), float(falldl)*float(fall));
+    texelColor1 = mix(texelColor1, mix(texelColor1, pixdc, 0.02), float(falld)*float(fall));
     
     // if here is empty, and above is empty, and left is not empty, and above left contains falling matter, put it here;
     texelColor1 = mix(texelColor1, pixulc, float(empty)*float(emptyu)*float(!emptyl)*float(fallul));
@@ -84,10 +89,10 @@ void main()
     // if here is edge, make red.
     texelColor1 = mix(texelColor1, vec4(1,0,0,1), float(isE));
 
-    bool isNewSand = texelColor1.r > (1.0/256.0)*250.0;
-    float newRed = 0.60+random(pos.xy*timepassed)*0.3;
+    bool isNewSand = texelColor1.b > (1.0/256.0)*200.0;
+    float newBlue = 0.60+random(pos.xy*timepassed)*0.3;
     float newGreen = 0.40+random(pos.yx*timepassed)*0.5;
-    texelColor1 = mix(texelColor1, vec4(newRed,newGreen,0,1), float(isNewSand)*float(!isE));
+    texelColor1 = mix(texelColor1, vec4(0,newGreen,newBlue,1), float(isNewSand)*float(!isE));
 
     finalColor = texelColor1;
 }

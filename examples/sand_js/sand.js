@@ -15,6 +15,9 @@ const InitGame = async () => {
     CurrentIteration = 0;
     texLoc = GetShaderLocation(shader, "texture1");
     target = new RenderTexture2D(LoadRenderTexture(screenWidth, screenHeight));
+
+    fTime = new UniformFloat(shader, "timepassed");
+
     SetShaderValueTexture(shader, texLoc, target.texture);
     SetShaderValue(shader, GetShaderLocation(shader, "screensize"), screenWidth, SHADER_UNIFORM_INT);
     BeginTextureMode(target);
@@ -36,14 +39,15 @@ const UpdateGame = (ts) => {
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) ){DrawCircle(p.x, p.y, 1, YELLOW);}
         if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT) ){DrawCircle(p.x, p.y, 1, BLACK);}
         SetShaderValueTexture(shader, texLoc, target.texture);
-        fTime = GetTime();
-        SetShaderValue(shader, GetShaderLocation(shader, "timepassed"), fTime, SHADER_UNIFORM_FLOAT);
+        fTime.value = GetTime();
     }
     CurrentIteration=0;
     EndTextureMode();
     BeginDrawing();
         ClearBackground(WHITE);
-        DrawTextureRec(target.texture, drawRec, drawVec, WHITE);
+        BeginShaderMode(shader);
+            DrawTextureRec(target.texture, drawRec, drawVec, WHITE);
+        EndShaderMode();
         DrawFPS(10, 10);
     EndDrawing();
 }

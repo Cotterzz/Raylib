@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "raylib.h"
 
-#define MAX_FIREBALLS    5000
+#define MAX_FIREBALLS    50000
 
 Mesh fireBallMesh;
 

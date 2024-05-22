@@ -67,7 +67,7 @@ void main()
 
     vec4 texelColor1 = pixc;
 
-    //texelColor1 = mix(texelColor1, mix(texelColor1, pixrc, 0.02), float(fallr)*float(fall));
+    texelColor1 = mix(texelColor1, mix(texelColor1, pixrc, 0.02), float(fallr)*float(fall));
     texelColor1 = mix(texelColor1, mix(texelColor1, pixdrc, 0.04), float(falldr)*float(fall));
     texelColor1 = mix(texelColor1, mix(texelColor1, pixdlc, 0.04), float(falldl)*float(fall));
     texelColor1 = mix(texelColor1, mix(texelColor1, pixdc, 0.02), float(falld)*float(fall));

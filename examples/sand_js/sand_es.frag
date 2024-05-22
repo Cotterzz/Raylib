@@ -13,5 +13,5 @@ uniform vec4 colDiffuse;
 
 void main()
 {
-    gl_FragColor = vec4(fragTexCoord.x, fragTexCoord.y, 1.0, 1);
+    gl_FragColor = vec4(vec3(texture2D(texture1, vec2(gl_FragCoord / 512.0))), 1.0);
 }
