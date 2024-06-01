@@ -52,7 +52,7 @@ int main(void)
         int colorgreen = (colortotal>255) ? colortotal-255-colorblue : 0;
         int colorred = (colortotal<256) ? colortotal : 255;
         fireBalls[i].color = (Color){ colorred,colorgreen,colorblue, 255 };
-        fireBalls[i].size = (float)GetRandomValue(4, 20)/10.0f;
+        fireBalls[i].size = (float)GetRandomValue(1, 3)/10.0f;
     }
     Mesh fireBallMesh = { 0 };
     fireBallMesh.triangleCount = MAX_FIREBALLS * 2;  // 2 triangles per quad
