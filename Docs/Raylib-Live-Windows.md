@@ -13,7 +13,7 @@ Make sure the cmd folder from that install is set in your PATH environment varia
 They're fine for manually cloning emsdk and Raylib-Live, but not for the automated git parts of the process.*
 
 ## Python
-You will need python 3.6 or higher for emsdkto do it's automatic dependency update as well.
+You will need python 3.6 or higher for emsdk to do it's automatic dependency update as well.
 Check to see if you have it by going to the command line† and entering ```py --version```
 If not go here and download the right installer for your system: https://www.python.org/downloads/windows/
 (If in doubt it will be the 64 bit version. It shoudld set the PATH variable* for you)
