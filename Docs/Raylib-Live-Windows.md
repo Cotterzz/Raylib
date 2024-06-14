@@ -3,6 +3,11 @@ This has been tested on Windows 11, but should be the same for Windows 10\
 It looks like a lot of steps, but much of these components may already exist on your system, though it's best to be sure and check each one.
 These steps won't apply if you're using the Docker version *(TODO: Write Docker instructions)*
 
+**Abbreviated instructions for more advanced users** \
+You'll want to make sure Git, Python, Node/Npm, Cmake and Ninja are installed, as well as a C compiler.\
+Then clone emsdk and Raylib-Live and follow their setup instructions, in that order.\
+Emsdk has a few more dependencies but it sorts those out by itself, as does Raylib-Live.
+
 ## Git
 You need the git CLI installed so that both emsdk and Raylib-Live can install other dependencies automatically.\
 Check to see if you have it by going to the command line† and entering ```git --version``` - it needs to be greater than 1.6.5\
