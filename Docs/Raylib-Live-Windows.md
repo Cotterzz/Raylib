@@ -1,7 +1,7 @@
 # Setting up Raylib-Live on Windows
 This has been tested on Windows 11, but should be the same for Windows 10\
-It looks like a lot of steps, but much of these components may already exist on your system, though it's best to be sure and check each one.
-These steps won't apply if you're using the Docker version *(TODO: Write Docker instructions)*
+It looks like a lot of steps, and most of these components may already exist on your system, though it's best to be sure and check each one.
+(Unless you're using the Docker version, then you just need Docker)
 
 **Abbreviated instructions for more advanced users** \
 You'll want to make sure Git, Python, Node/Npm, Cmake and Ninja are installed, as well as a C compiler.\
@@ -9,7 +9,8 @@ Then clone emsdk and Raylib-Live and follow their setup instructions, in that or
 Emsdk has a few more dependencies but it sorts those out by itself, as does Raylib-Live.
 
 ## Git
-You need the git CLI installed so that both emsdk and Raylib-Live can install other dependencies automatically.\
+You need the git CLI installed so that emsdk can install other dependencies automatically.\
+In theory it should install it's own version, but it seems to require git to do that :upside_down_face:	\
 Check to see if you have it by going to the command line† and entering ```git --version``` - it needs to be greater than 1.6.5\
 If it doesn't recognise that then either it isn't installed or there's not a PATH variable* pointing to the folder containing git.exe\
 To install go here: https://www.git-scm.com/download/win and download and install the windows portable version.\
@@ -18,7 +19,8 @@ Make sure the cmd folder from that install is set in your PATH environment varia
 They're fine for manually cloning emsdk and Raylib-Live, but not for the automated git parts of the process.*
 
 ## Python
-You will need python 3.6 or higher for emsdk to do it's automatic dependency update as well.
+You will need python 3.6 or higher for emsdk to do it's automatic dependency update as well. \
+Like Git, emsdk installs it's own version, but it still needs one to be installed first :upside_down_face: \
 Check to see if you have it by going to the command line† and entering ```py --version```
 If not go here and download the right installer for your system: https://www.python.org/downloads/windows/
 (If in doubt it will be the 64 bit version. It should set the PATH variable* for you)
