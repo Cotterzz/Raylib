@@ -16,7 +16,7 @@ They're fine for manually cloning emsdk and Raylib-Live, but not for the automat
 You will need python 3.6 or higher for emsdk to do it's automatic dependency update as well.
 Check to see if you have it by going to the command line† and entering ```py --version```
 If not go here and download the right installer for your system: https://www.python.org/downloads/windows/
-(If in doubt it will be the 64 bit version. It shoudld set the PATH variable* for you)
+(If in doubt it will be the 64 bit version. It should set the PATH variable* for you)
 
 ## Emsdk - The Emscripten SDK
 You will need to start by cloning the emsdk repo.
@@ -26,7 +26,7 @@ After that you will need to do the following to complete the installation (the e
 1. If not already there, navigate to the directory with the command line ```cd emsdk```
 2. Then ```emsdk install latest``` to complete the installation, this may (and should) take a while.
 3. Then ```emsdk activate latest``` to activate the various components of the sdk, which will create a few more config files.
-4. Then ```emsdk_env.bat``` to add some permanent, final PATH variables
+4. Then ```emsdk_env.bat``` to add some permanent, final PATH variables*
 
 ## Node/NPM
 Emsdk should have installed Node for you at this point, but you want to make sure this and NPM are installed.\
@@ -38,7 +38,7 @@ Go here: https://nodejs.org/en/download/prebuilt-installer to install Node and N
 You very likely have one of these already installed with Raylib, and you will need one for native builds.\
 See if GCC is available by entering ```gcc -v``` at the command line.\
 If it's not, go to https://winlibs.com/ scroll down to releases and pick the first 64 or 32 bit zip or 7z.\
-Unpack it to a directory, and make sure you have a PATH set to the bin folder
+Unpack it to a directory, and make sure you have a PATH* set to the bin folder
 
 ## Ninja
 This is one you're less likely to have.\
