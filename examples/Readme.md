@@ -13,11 +13,9 @@ It might also be faster to render, because of the lower number of edge pixels: h
 
 This is a particle effect using a quad for each particle, it allows more control over the shader, so different values can be passed to each particle's shader using the vertex buffer.
 
-## Model JSON
+## Snake Shader
 
-A file format to store native Raylib models in JSON format.
-Possibly making conversion from other formats easier, or to switch between formats without unpacking the file into Raylib objects.
-TODO - add example shaders and textures, start writing an exporter.
+A pixel based snake using automata and a shader, works very differently from traditional implementation.
 
 ## Falling Sand on the GPU
 
